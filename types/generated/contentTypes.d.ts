@@ -713,6 +713,7 @@ export interface ApiClassClass extends Schema.CollectionType {
     singularName: 'class';
     pluralName: 'classes';
     displayName: 'Class';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -722,6 +723,11 @@ export interface ApiClassClass extends Schema.CollectionType {
     description: Attribute.String;
     author: Attribute.String;
     class_video: Attribute.Media;
+    course: Attribute.Relation<
+      'api::class.class',
+      'oneToOne',
+      'api::course.course'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
